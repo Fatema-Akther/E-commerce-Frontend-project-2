@@ -1,8 +1,8 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import {  useState } from 'react';
-import { allProducts} from '../data/products';
+import { useState, Suspense } from 'react';
+import { allProducts } from '../data/products';
 import ProductCardGrid from '../components/ProductCardgrid';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,6 +10,16 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 export default function SearchResultsPage() {
+  return (
+    // Suspense is required to wrap the components that rely on client-side hooks like `useSearchParams`.
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResultsContent />
+    </Suspense>
+  );
+}
+
+// This component contains the logic that depends on the `useSearchParams` hook.
+const SearchResultsContent = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get('query') || '';
 
@@ -50,6 +60,7 @@ export default function SearchResultsPage() {
         : [...prev, cat]
     );
   };
+
 
   return (
     <div className="bg-white">
