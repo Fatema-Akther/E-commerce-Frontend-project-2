@@ -39,7 +39,7 @@ export default function ProductGridWithDrawer() {
 
   return (
     <>
-      <ProductCardGrid onAddToCart={handleAddToCart} />
+      <ProductCardGrid onAddToCart={handleAddToCart} products={[]} />
       <CartDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
