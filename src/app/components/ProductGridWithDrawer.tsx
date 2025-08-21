@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Product } from '../data/products';
+import { allProducts, Product } from '../data/products';
 import ProductCardGrid from './ProductCardgrid';
 import CartDrawer from './CartDrawer';
 
@@ -39,7 +39,8 @@ export default function ProductGridWithDrawer() {
 
   return (
     <>
-      <ProductCardGrid onAddToCart={handleAddToCart} products={[]} />
+ <ProductCardGrid onAddToCart={handleAddToCart} products={allProducts} />
+
       <CartDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
