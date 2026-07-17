@@ -119,7 +119,7 @@ export default function Header({ onSearchChange }: Props) {
       <div className="px-4 py-2 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         {/* Logo */}
         <Link href="/" className="text-xl md:text-[28px] font-extrabold tracking-wide text-black">
-          SHEIN
+     Velora
         </Link>
 
         {/* Search bar */}
