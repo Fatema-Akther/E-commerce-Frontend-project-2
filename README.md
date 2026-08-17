@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./banner.png" alt="Velora E-Commerce Frontend Banner" width="100%">
+  <img src="./public/banner.png" alt="Velora E-Commerce Frontend Banner" width="100%">
 </p>
 
 # Velora — E-Commerce Frontend
@@ -63,25 +63,25 @@ https://e-commerce-frontend-project-2.vercel.app
 
 ### Homepage
 
-![Homepage Screenshot](./screenshots/homepage.png)
+![Homepage Screenshot](./public/screenshots/homepage.png)
 
 ### Product Listing
 
-![Product Listing Screenshot](./screenshots/product-listing.png)
+![Product Listing Screenshot](./public/screenshots/product-listing.png)
 
 ### Product Details
 
-![Product Details Screenshot](./screenshots/product-details.png)
+![Product Details Screenshot](./public/screenshots/product-details.png)
 
 ### Shopping Cart
 
-![Shopping Cart Screenshot](./screenshots/shopping-cart.png)
+![Shopping Cart Screenshot](./public/screenshots/shopping-cart.png)
 
 ### Responsive Design
 
 The interface is designed to provide a responsive shopping experience across desktop, tablet, and mobile devices.
 
-![Responsive Design](./screenshots/responsive.png)
+![Responsive Design](./public/screenshots/responsive.png)
 
 ---
 
