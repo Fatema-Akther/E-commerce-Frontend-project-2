@@ -12,134 +12,150 @@ import Footer from '@/app/components/Footer';
 
 export default function CategoryPage() {
   const { category } = useParams();
+
   const categorySlug = decodeURIComponent(category as string);
+
   const [searchQuery, setSearchQuery] = useState('');
 
-  // ✅ First filter by group only
-  const groupMatched = allProducts.filter(
-    (p) => slugify(p.group || '') === categorySlug
+  // Filter by main category
+  const categoryMatched = allProducts.filter(
+    (product) => slugify(product.category) === categorySlug
   );
 
-  // ✅ Then filter by search input (on group-matched only)
-  const filtered = groupMatched.filter(
-    (p) =>
-      p.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.subcategory?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.category1?.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Search only inside matched category
+  const filtered = categoryMatched.filter((product) => {
+    const q = searchQuery.trim().toLowerCase();
 
-  // ❌ Category does not exist at all (invalid URL)
-  if (groupMatched.length === 0) {
+    if (!q) return true;
+
     return (
-      <div className="flex flex-col min-h-screen bg-white p-6 text-center text-red-600">
+      product.title.toLowerCase().includes(q) ||
+      product.category.toLowerCase().includes(q) ||
+      product.subcategory?.toLowerCase().includes(q) ||
+      product.brand.toLowerCase().includes(q)
+    );
+  });
+
+  // Invalid category
+  if (categoryMatched.length === 0) {
+    return (
+      <div className="flex min-h-screen flex-col bg-white text-center text-red-600">
         <Header onSearchChange={setSearchQuery} />
-        <div className="flex-grow flex items-center justify-center">
+
+        <div className="flex flex-grow items-center justify-center">
           <p>Category not found: {categorySlug}</p>
         </div>
+
         <Footer />
       </div>
     );
   }
 
-
-
-  // 🟠 Shop by Category
-  const categoryItems = filtered.filter((p) => p.section === 'Shop by Category');
-
-  // 🔵 Shop by Trends (no subgroup)
-  const topTrends = filtered.filter(
-    (p) => p.section === 'Shop by Trends' && !p.subgroup
+  // Shop by Category
+  const categoryItems = filtered.filter(
+    (product) => product.section === 'Shop by Category'
   );
 
-  // 🟣 Subgroups (only if `section` is undefined)
-  const groupedSubgroups = filtered
-    .filter((p) => !p.section && p.subgroup)
-    .reduce((acc: Record<string, Product[]>, item) => {
-      const key = item.subgroup!;
-      if (!acc[key]) acc[key] = [];
-      acc[key].push(item);
-      return acc;
-    }, {});
+  // Shop by Trends
+  const trendItems = filtered.filter(
+    (product) => product.section === 'Shop by Trends'
+  );
+
+  // Products without section
+  const otherItems = filtered.filter(
+    (product) => !product.section
+  );
 
   const renderCircleGrid = (
     products: Product[],
     gapClasses = 'gap-x-6 gap-y-6',
     columnClasses = 'grid-cols-4 sm:grid-cols-5 md:grid-cols-6 xl:grid-cols-7'
   ) => (
-    <div className={`grid ${columnClasses} ${gapClasses} place-items-center`}>
+    <div
+      className={`grid ${columnClasses} ${gapClasses} place-items-center`}
+    >
       {products.map((product) => (
         <Link
           key={product.id}
           href={`/product/${product.id}`}
-          className="flex flex-col items-center text-center text-black text-xs"
+          className="flex flex-col items-center text-center text-xs text-black"
         >
-          <div className="w-[60px] h-[60px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] rounded-full overflow-hidden bg-gray-100 shadow-sm">
+          <div className="h-[60px] w-[60px] overflow-hidden rounded-full bg-gray-100 shadow-sm sm:h-[80px] sm:w-[80px] lg:h-[100px] lg:w-[100px]">
             <Image
               src={product.image[0]}
               alt={product.title}
               width={100}
               height={100}
-              className="object-cover w-full h-full"
+              className="h-full w-full object-cover"
             />
           </div>
-          <span className="mt-1 leading-tight line-clamp-2">{product.title}</span>
+
+          <span className="mt-1 line-clamp-2 leading-tight">
+            {product.title}
+          </span>
         </Link>
       ))}
     </div>
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex min-h-screen flex-col bg-white">
       <Header onSearchChange={setSearchQuery} />
 
-      <div className="py-8 px-4 max-w-[1500px] mx-auto flex-grow">
-        
+      <div className="mx-auto w-full max-w-[1500px] flex-grow px-4 py-8">
+        <div className="relative grid grid-cols-1 gap-10 md:grid-cols-2">
 
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Vertical divider */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-300" />
+          {/* Divider */}
+          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px bg-gray-300 md:block" />
 
-          {/* Shop by Category */}
-    <div className="pl-2 md:pl-10 lg:pl-12 xl:pl-20">
-
+          {/* Left side */}
+          <div className="pl-2 md:pl-10 lg:pl-12 xl:pl-20">
             {categoryItems.length > 0 && (
               <div>
-                <h3 className="text-sm font-bold uppercase mb-4 text-[#8c3606]">
+                <h3 className="mb-4 text-sm font-bold uppercase text-[#8c3606]">
                   Shop by Category
                 </h3>
+
                 {renderCircleGrid(
                   categoryItems,
-                'gap-x-12 gap-y-10',
+                  'gap-x-12 gap-y-10',
                   'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5'
                 )}
               </div>
             )}
           </div>
 
-          {/* Shop by Trends + Subgroups */}
-          <div className="space-y-16 px-10">
-            {topTrends.length > 0 && (
+          {/* Right side */}
+          <div className="space-y-14 px-2 md:px-10">
+            {trendItems.length > 0 && (
               <div>
-                <h3 className="text-sm font-bold uppercase mb-4 text-[#123659]">
+                <h3 className="mb-4 text-sm font-bold uppercase text-[#123659]">
                   Shop by Trends
                 </h3>
-                {renderCircleGrid(topTrends, 'gap-x-32 gap-y-10')}
+
+                {renderCircleGrid(
+                  trendItems,
+                  'gap-x-12 gap-y-10',
+                  'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5'
+                )}
               </div>
             )}
 
-            {Object.keys(groupedSubgroups).length > 0 && (
-              <div className="space-y-12">
-                {Object.entries(groupedSubgroups).map(([subgroup, items]) => (
-                  <div key={subgroup}>
-                    <h4 className="text-sm font-bold uppercase mb-4 text-[#123659]">
-                      {subgroup}
-                    </h4>
-                    {renderCircleGrid(items, 'gap-x-32 gap-y-10')}
-                  </div>
-                ))}
+            {otherItems.length > 0 && (
+              <div>
+                <h3 className="mb-4 text-sm font-bold uppercase text-[#123659]">
+                  More Products
+                </h3>
+
+                {renderCircleGrid(
+                  otherItems,
+                  'gap-x-12 gap-y-10',
+                  'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5'
+                )}
               </div>
             )}
           </div>
+
         </div>
       </div>
 

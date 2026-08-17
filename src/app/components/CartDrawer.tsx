@@ -91,7 +91,7 @@ const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                 <div className="flex-1">
                   <p className="text-sm font-medium line-clamp-2 text-black">{item.title}</p>
                   <div className="text-xs text-gray-600 line-through">{item.oldPrice}</div>
-                  <div className="text-black font-bold">{item.price}</div>
+                  <div className="text-sm font-bold text-[#9D4E75]">{item.price}</div>
                 </div>
                 <div className="flex flex-col items-center justify-between">
                   <div className="flex items-center gap-2 text-black">
@@ -128,8 +128,8 @@ const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
           )}
         </div>
 
-        <div className="p-4 border-t">
-          <p className="font-bold mb-2">
+        <div className="p-4 -mt-4 border-t">
+          <p className="font-bold mb-2 text-black">
             Subtotal: <span className="float-right text-black">৳ {subtotal.toLocaleString()}</span>
           </p>
           <div className="flex gap-2 ">
@@ -149,7 +149,7 @@ const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                 onClose();
                 router.push('/checkout');
               }}
-              className="flex-1 bg-black text-white text-sm py-2 rounded"
+              className="flex-1 bg-[#9D4E75] text-white text-sm py-2 rounded"
             >
               Checkout
             </button>

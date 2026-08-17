@@ -100,12 +100,13 @@ export default function CheckoutForm() {
          className="col-span-6 md:col-span-5 space-y-4"
         >
           <h3 className="text-xl font-bold mb-4 text-black">
-            অর্ডার কনফার্ম করতে আপনার নাম, ঠিকানা, মোবাইল নাম্বার লিখে অর্ডার কনফার্ম করুন।
+           To confirm your order please enter valid information.
+
           </h3>
 
           {/* Phone */}
           <div>
-            <label className="block mb-1 font-medium text-black">আপনার ফোন নাম্বার*</label>
+            <label className="block mb-1 font-medium text-black">Your Phone Number*</label>
             <input
   name="phone"
   type="number"
@@ -121,7 +122,7 @@ export default function CheckoutForm() {
 
           {/* Name */}
           <div>
-            <label className="block mb-1 font-medium text-black">আপনার নাম*</label>
+            <label className="block mb-1 font-medium text-black">Your Name*</label>
             <input
               name="firstName"
               type="text"
@@ -137,7 +138,7 @@ export default function CheckoutForm() {
 
           {/* Address */}
           <div>
-            <label className="block mb-1 font-medium text-black">আপনার ডেলিভারি ঠিকানা দিন*</label>
+            <label className="block mb-1 font-medium text-black">Enter Your Delivery Address*</label>
             <textarea
               name="address"
               value={form.address}
@@ -153,7 +154,7 @@ export default function CheckoutForm() {
 
           {/* City */}
           <div>
-            <label className="block mb-1 font-medium text-black">ডেলিভারি এলাকা*</label>
+            <label className="block mb-1 font-medium text-black">Delivery Area*</label>
             <select
               name="city"
               value={form.city}
@@ -172,7 +173,7 @@ export default function CheckoutForm() {
 
           {/* Note */}
           <div>
-            <label className="block mb-1 font-medium text-black">গ্রাহক নোট (optional)</label>
+            <label className="block mb-1 font-medium text-black">Customer Note(optional)</label>
             <textarea
               name="note"
               value={form.note}
@@ -186,9 +187,9 @@ export default function CheckoutForm() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-black text-white py-3 rounded text-lg font-semibold"
+            className="w-full bg-[#9D4E75] text-white py-3 rounded text-lg font-semibold"
           >
-            অর্ডার কনফার্ম করুন
+          Confirm Order
           </button>
         </form>
 
@@ -197,7 +198,7 @@ export default function CheckoutForm() {
           <div className="w-full md:w-[350px] h-fit bg-white shadow-md rounded-lg overflow-hidden border sticky top-4  md:ml-auto">
             <div className="p-4 border-b">
               <h3 className="text-lg font-bold text-black">
-আপনার নির্বাচিত প্রোডাক্ট</h3>
+Your Selected Product</h3>
             </div>
 
             <div className="max-h-[400px] overflow-y-auto p-4 space-y-4">
@@ -212,7 +213,7 @@ export default function CheckoutForm() {
                   />
                   <div className="flex-1">
                     <p className="text-sm font-medium text-black line-clamp-2">{item.title}</p>
-                    <p className="text-pink-600 font-bold text-sm mt-1">{item.price}</p>
+                    <p className="text-[#9D4E75] font-bold text-sm mt-1">{item.price}</p>
                     <p className="text-xs text-gray-600">Qty: {item.quantity || 1}</p>
                   </div>
                 </div>
@@ -222,7 +223,7 @@ export default function CheckoutForm() {
         )}
       </div>
 
-      <InfoFeatures />
+    
       <Footer />
     </div>
   );

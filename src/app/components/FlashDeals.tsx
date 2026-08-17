@@ -68,9 +68,9 @@ export default function FlashDeals() {
   }, [])
 
   return (
-   <section className="w-full relative bg-gradient-to-r from-[#FDE1CA] to-[#FFC3BA] p-2 sm:p-4 rounded-md sm:rounded-lg mt-4 min-h-[160px] sm:min-h-[220px]">
+   <section className="w-full relative bg-[#FDF1F6] p-2 sm:p-4 rounded-md sm:rounded-lg mt-4 min-h-[160px] sm:min-h-[220px]">
   <div className="flex justify-between items-center mb-2">
-    <h2 className="text-base sm:text-lg font-semibold text-red-600">
+    <h2 className="text-base sm:text-lg font-semibold text-[#8B2E5C]">
       <span className="italic text-black">Super</span>Deals
     </h2>
     <button

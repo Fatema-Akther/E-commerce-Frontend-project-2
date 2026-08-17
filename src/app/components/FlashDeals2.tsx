@@ -2,7 +2,8 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
-import FlashCard from './FlashCard2'
+import FlashCard2 from './FlashCard2'
+
 
 const deals = [
   {
@@ -68,10 +69,10 @@ export default function FlashDeals() {
   }, [])
 
   return (
-   <section className="w-full relative bg-[#FFF5E1] p-4 mt-4 min-h-[180px] sm:min-h-[240px] ">
+   <section className="w-full relative bg-[#FDF1F6] p-4 mt-4 min-h-[180px] sm:min-h-[240px] ">
 
       <div className="flex justify-between items-center mb-2">
-        <h2 className="text-lg font-semibold text-red-600">
+        <h2 className="text-lg font-semibold text-[#9D4E75]">
           <span className="italic text-black">Super</span>Deals
         </h2>
 <button
@@ -92,7 +93,7 @@ export default function FlashDeals() {
 >
 
         {deals.map((item) => (
-          <FlashCard
+          <FlashCard2
             key={item.id}
             images={item.images}
             title={item.title}

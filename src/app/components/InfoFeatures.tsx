@@ -4,7 +4,7 @@ import { FaBoxOpen, FaPhoneAlt, FaLock, FaPaperPlane } from 'react-icons/fa';
 
 const InfoFeatures = () => {
   return (
-    <section className="bg-rose-400 text-white py-12">
+    <section className="bg-[#e64b23] text-white py-12">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {/* Feature 1 */}
         <div>

@@ -14,7 +14,7 @@ import { BsChevronDown } from 'react-icons/bs';
 import { slugify } from '@/app/utils/slugify';
 import { categories } from '@/app/data/categoryList';
 import { usePathname, useRouter } from 'next/navigation';
-import HoveredCategoryPreview from './HoveredCategoryPreview';
+
 import CartDrawer from './CartDrawer';
 
 type CartProduct = {
@@ -35,7 +35,7 @@ export default function Header({ onSearchChange }: Props) {
   const [mobileCategoryOpen, setMobileCategoryOpen] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [dropdownFrozen, setDropdownFrozen] = useState(false);
-  const [hoveredCat, setHoveredCat] = useState<string | null>(null);
+  // const [hoveredCat, setHoveredCat] = useState<string | null>(null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -116,47 +116,103 @@ export default function Header({ onSearchChange }: Props) {
 
   return (
     <header className="bg-white border-b border-gray-200 text-sm">
-      <div className="px-4 py-2 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-        {/* Logo */}
-        <Link href="/" className="text-xl md:text-[28px] font-extrabold tracking-wide text-black">
-     Velora
-        </Link>
+    <div className="px-4 py-2">
+  <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 md:flex md:justify-between">
 
-        {/* Search bar */}
-        <form onSubmit={handleSearchSubmit} className="w-full md:max-w-[500px]">
-          <div className="flex border border-gray-400 h-[32px] md:h-[36px] w-full text-black">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={handleSearchChange}
-              className="flex-1 px-2 md:px-3 text-sm outline-none bg-white"
-            />
-            <button type="submit" className="bg-black text-white px-3">
-              <FaSearch size={14} />
-            </button>
-          </div>
-        </form>
+    {/* Logo */}
+    <Link
+      href="/"
+      className="text-xl md:text-[28px] font-extrabold tracking-wide text-[#9D4E75]"
+    >
+      Velora
+    </Link>
 
-        {/* Icons */}
-        <div className="flex items-center justify-end gap-2 md:gap-5 text-gray-700 text-[16px] flex-nowrap overflow-x-auto scrollbar-hide">
-          <FaUser className="flex-shrink-0" />
-          <div className="relative cursor-pointer" onClick={() => setIsCartOpen(true)}>
-            <FaShoppingCart className="text-xl" />
-            {cartCount > 0 && (
-              <span className="absolute top-[2px] right-[-6px] bg-red-500 text-white text-[10px] font-bold w-[16px] h-[16px] flex items-center justify-center rounded-full">
-                {cartCount}
-              </span>
-            )}
-          </div>
-          <FaHeart className="flex-shrink-0" />
-          <FaGlobe className="flex-shrink-0" />
-        </div>
+    {/* Desktop Search */}
+    <form
+      onSubmit={handleSearchSubmit}
+      className="hidden md:block w-full md:max-w-[500px]"
+    >
+      <div className="flex h-[36px] w-full border border-gray-400 text-black">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="flex-1 bg-white px-3 text-sm outline-none"
+        />
+
+        <button
+          type="submit"
+          className="bg-black px-3 text-white"
+        >
+          <FaSearch size={14} />
+        </button>
       </div>
+    </form>
+
+    {/* Icons */}
+   <div className="flex items-center justify-end gap-3 text-gray-700 md:mr-6 lg:mr-10 xl:mr-14">
+     <FaUser className="flex-shrink-0 text-[18px]" />
+
+      <button
+        type="button"
+        onClick={() => setIsCartOpen(true)}
+        className="relative flex h-7 w-7 items-center justify-center overflow-visible"
+      >
+        <FaShoppingCart className="text-xl" />
+
+        {cartCount > 0 && (
+          <span
+            className="
+              absolute
+              right-[-2px]
+              top-[-1px]
+              flex h-[14px] min-w-[14px]
+              items-center justify-center
+              rounded-full
+              bg-[#9D4E75]
+              px-[3px]
+              text-[9px]
+              font-bold
+              leading-none
+              text-white
+            "
+          >
+            {cartCount}
+          </span>
+        )}
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Search */}
+  <form
+    onSubmit={handleSearchSubmit}
+    className="mt-3 w-full md:hidden"
+  >
+    <div className="flex h-[38px] w-full border border-gray-400 text-black">
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchQuery}
+        onChange={handleSearchChange}
+        className="min-w-0 flex-1 bg-white px-3 text-sm outline-none"
+      />
+
+
+      <button
+        type="submit"
+        className="flex w-[46px] items-center justify-center bg-black text-white"
+      >
+        <FaSearch size={14} />
+      </button>
+    </div>
+  </form>
+</div>
 
       {/* Top navbar */}
       <div className="hidden md:flex w-full">
-        <nav className="flex items-center gap-5 px-6 py-1 text-[13px] font-medium text-black">
+       <nav className="flex items-center justify-center gap-5 px-6 py-1 text-[13px] font-medium text-black w-full">
           {/* Dropdown menu */}
           <div
             className="relative"
@@ -171,43 +227,52 @@ export default function Header({ onSearchChange }: Props) {
             {dropdownVisible && (
               <div className="absolute top-6 left-0 bg-white shadow-sm rounded w-64 max-h-[400px] overflow-y-auto z-50 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                 <ul className="divide-y divide-gray-100">
-                  {categories.map((cat, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center justify-between px-4 py-2 text-[14px] text-black hover:bg-gray-100 cursor-pointer"
-                    >
-                      <Link href={formatCategoryUrl(cat)} className="flex-1 hover:text-blue-600">
-                        {cat}
-                      </Link>
-                      <FaChevronRight className="text-gray-400 w-3 h-3 ml-2" />
-                    </li>
-                  ))}
+                 {categories.map((cat) => (
+  <li
+    key={cat.label}
+    className="flex items-center justify-between px-4 py-2 text-[14px] text-black hover:bg-gray-100 cursor-pointer"
+  >
+    <Link
+      href={`/group/${slugify(cat.label)}`}
+      className="flex-1 hover:text-blue-600"
+    >
+      {cat.label}
+    </Link>
+
+    <FaChevronRight className="text-gray-400 w-3 h-3 ml-2" />
+  </li>
+))}
                 </ul>
               </div>
             )}
           </div>
+         <Link
+  href="/all-products"
+  className="text-black cursor-pointer hover:text-[#e64b23] transition"
+>
+  All
+</Link>
+
+
 
           {/* Top Navbar Group Links with Hover Preview */}
-          {categories.map((cat, idx) => (
-            <div
-              key={idx}
-              className="relative"
-              onMouseEnter={() => setHoveredCat(cat)}
-              onMouseLeave={() => setHoveredCat(null)}
-            >
-              <Link
-                href={`/group/${slugify(cat)}`}
-                className="cursor-pointer whitespace-nowrap hover:text-blue-600"
-              >
-                {cat}
-              </Link>
-              {hoveredCat === cat && (
-                <div className="absolute top-full left-0 z-50 mt-2">
-                  <HoveredCategoryPreview category={cat} />
-                </div>
-              )}
-            </div>
-          ))}
+        {categories.slice(0, 5).map((cat) => (
+  <Link
+    key={cat.label}
+    href={`/group/${slugify(cat.label)}`}
+    className="cursor-pointer whitespace-nowrap hover:text-[#e64b23]"
+  >
+    {cat.label}
+  </Link>
+))}
+
+
+ <Link
+  href="/Offer"
+  className="text-black cursor-pointer hover:text-[#e64b23] transition"
+>
+  Offer
+</Link>
         </nav>
       </div>
 
@@ -220,27 +285,30 @@ export default function Header({ onSearchChange }: Props) {
           Categories <BsChevronDown size={10} />
         </div>
 
-        {categories.map((item, idx) => (
-          <Link
-            key={idx}
-            href={`/group/${slugify(item)}`}
-            className="cursor-pointer flex-shrink-0"
-          >
-            {item}
-          </Link>
-        ))}
+       {categories.slice(0, 5).map((item) => (
+  <Link
+    key={item.label}
+    href={`/group/${slugify(item.label)}`}
+    className="cursor-pointer flex-shrink-0"
+  >
+    {item.label}
+  </Link>
+))}
       </div>
 
       {mobileCategoryOpen && (
         <div className="md:hidden px-4 pb-2">
           <ul className="grid grid-cols-2 gap-2 text-sm mt-1">
-            {categories.map((cat, i) => (
-              <li key={i}>
-                <Link href={formatCategoryUrl(cat)} className="hover:text-blue-600 block">
-                  {cat}
-                </Link>
-              </li>
-            ))}
+           {categories.map((cat) => (
+  <li key={cat.label}>
+    <Link
+      href={formatCategoryUrl(cat.label)}
+      className="hover:text-blue-600 block"
+    >
+      {cat.label}
+    </Link>
+  </li>
+))}
           </ul>
         </div>
       )}
@@ -250,3 +318,4 @@ export default function Header({ onSearchChange }: Props) {
     </header>
   );
 }
+

@@ -11,7 +11,7 @@ import { MdLocationOn, MdPhone } from "react-icons/md";
 
 const Footer = () => {
   return (
-   <footer className="bg-[#F9F9F9] text-black px-6 pt-10 pb-4">
+   <footer className="bg-[#4f293d] text-black px-6 pt-10 pb-4">
 
 
   <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
@@ -19,8 +19,8 @@ const Footer = () => {
 
         {/* FIND US */}
         <div>
-          <h4 className="text-base font-bold mb-4 uppercase">Find Us</h4>
-          <p className="flex items-start gap-2 mb-2">
+          <h4 className="text-white font-bold mb-4 uppercase">Find Us</h4>
+          <p className="flex items-start gap-2 mb-2 text-gray-300">
             <MdLocationOn className="mt-1" />
             <span>
               45-50 Gulberg III Industrial Area<br />
@@ -28,27 +28,27 @@ const Footer = () => {
               Sheikhupura Textile Mills Ltd
             </span>
           </p>
-          <p className="flex items-center gap-2 mb-2">
+          <p className="flex items-center gap-2 mb-2 text-gray-300">
             <MdPhone /> 042-111-111-009<br />
           </p>
-          <p className="text-xs mb-2 ml-6">(10AM to 5.30PM) Mon to Sat</p>
-          <p className="flex items-center gap-2 mb-2">
+          <p className="text-xs mb-2 ml-6 text-gray-400">(10AM to 5.30PM) Mon to Sat</p>
+          <p className="flex items-center gap-2 mb-2 text-gray-300">
             <FaWhatsapp /> +92 302 8141555
           </p>
-          <p className="text-xs mb-2 ml-6">(10AM to 5.30PM) Mon to Sat</p>
-          <p className="flex items-center gap-2">
+          <p className="text-xs mb-2 ml-6 text-gray-400">(10AM to 5.30PM) Mon to Sat</p>
+          <p className="flex items-center gap-2 text-gray-300">
             <FaEnvelope /> sales@crosstitch.pk
           </p>
         </div>
 
         {/* CUSTOMER CARE */}
         <div>
-     <h4 className="text-base font-bold mb-4 uppercase">
+     <h4 className="text-base font-bold mb-4 uppercase text-white">
   <Link href="/about">
     Customer Care
   </Link>
 </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-gray-300">
             <li><a href="#" className="hover:underline">Store Locations</a></li>
             <li><a href="#" className="hover:underline">Policies</a></li>
             <li><a href="#" className="hover:underline">Ordering & Tracking</a></li>
@@ -58,8 +58,8 @@ const Footer = () => {
 
         {/* INFORMATION */}
         <div>
-          <h4 className="text-base font-bold mb-4 uppercase">   <Link href="/contract">Information </Link></h4>
-          <ul className="space-y-2">
+          <h4 className="text-base font-bold mb-4 uppercase text-white">   <Link href="/contract">Information </Link></h4>
+          <ul className="space-y-2 text-gray-300">
             <li><a href="#" className="hover:underline">Privacy Policy</a></li>
             <li><a href="#" className="hover:underline">Payment Method</a></li>
             <li><a href="#" className="hover:underline">Returns & Exchanges</a></li>
@@ -70,13 +70,13 @@ const Footer = () => {
 
         {/* ABOUT US */}
         <div>
-          <h4 className="text-base font-bold mb-4 uppercase">About Us</h4>
-          <ul className="space-y-2 mb-4">
+          <h4 className="text-base font-bold mb-4 uppercase text-white">About Us</h4>
+          <ul className="space-y-2 mb-4 text-gray-300">
             <li><a href="#" className="hover:underline">The Brand</a></li>
             <li><a href="#" className="hover:underline">Shipping Policy</a></li>
             <li><a href="#" className="hover:underline">Terms & Conditions</a></li>
           </ul>
-          <div className="flex items-center gap-4 text-xl">
+          <div className="flex items-center gap-4 text-xl text-gray-300 mt-4">
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaYoutube /></a>

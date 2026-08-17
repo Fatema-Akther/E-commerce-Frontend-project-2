@@ -1,2110 +1,1765 @@
+export type ProductVariant = {
+  color?: string;
+  sizes?: string[];
+};
+
 export type Product = {
   id: number;
+
+  category: string;
+  subcategory?: string;
+
   image: string[];
   title: string;
+
   price: string;
-  oldPrice: string;
-  discount: string;
-  category1: string;
+  oldPrice?: string;
+  discount?: string;
+
   brand: string;
+
   features: string[];
   ShortDescription: string[];
   LongDescription: string[];
-  group: string;        // Example: "Kids", "Women"
-  section?: string;      // Example: "Shop by Category", "Shop by Trends"
-  subgroup?: string;
-  subcategory:string;    // Optional: "Young Girls Clothing (3–7 Yrs)"
+
+  section?: string;
+
+  variants: ProductVariant[];
 };
 
 export const allProducts: Product[] = [
   {
     id: 1,
-    brand: 'sss',
-    category1: 'kids',
-     subcategory:'party Dress',
-    group: 'Kids',
+    category: 'Kids',
+    subcategory: 'Party Dress',
+    brand: 'Velora Kids',
     section: 'Shop by Category',
-    image: ['/images/p21.jpg', '/images/p22.jpg', '/images/p23.jpg'],
-    title: 'Floaty Lavender Floral Print Maxi Dress',
-    price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: [ 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
-  },
-  {
-    id: 2,
-    brand: 'Aarong',
-    category1: 'party dresses',
-         subcategory:'party Dress',
-    group: 'Kids',
-    
-  
 
-  section: 'Shop by Category',
-    image: ['/images/p24.jpg', '/images/p25.jpg', '/images/p26.jpg'],
-    title: 'Casual Chic Rayon Mustard A-Line Top',
-    price: 'Tk 1,002.11',
-    oldPrice: 'Tk 1,432.20',
-    discount: 'SAVE 30%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 3 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
-  },
-  // 🔁 Add more products here with appropriate group, section, and optional subgroup
-
- {
-    id: 3,
-    brand: 'sss',
-    category1: 'kids',
-         subcategory:'party Dress',
-    group: 'Kids',
-   section: 'Shop by Category',
-
-    image: ['/images/p28.jpg', '/images/p27.jpg', '/images/p29.jpg'],
-    title: 'Floaty Lavender Floral Print Maxi Dress',
-    price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
-  },
-  {
-    id: 4,
-    brand: 'Aarong',
-    category1: 'party dresses',
-         subcategory:'party Dress',
-    group: 'Kids',
-     subgroup: 'Young Girls Clothing (3–7 Yrs)',
-  
-    image: ['/images/p70.jpg', '/images/p71.jpg', '/images/p72.jpg'],
-    title: 'Casual Chic Rayon Mustard A-Line Top',
-    price: 'Tk 1,002.11',
-    oldPrice: 'Tk 1,432.20',
-    discount: 'SAVE 30%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 3 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
-  },
-  {
-    id: 5,
-    brand: 'aa',
-    category1: 'kids',
-         subcategory:'party Dress',
-    group: 'kids',
-       section: 'Shop by Category',
-   
-    image: ['/images/p31.jpg',
-      '/images/p30.jpg',
- '/images/p32.jpg'
+    image: [
+      '/images/p21.jpg',
+      '/images/p22.jpg',
+      '/images/p23.jpg',
     ],
-    title: 'Graceful Light Orange Straight Salwar',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Floaty Lavender Floral Print Maxi Dress',
+
+    price: 'Tk 2,149.02',
+    oldPrice: 'Tk 3,152.57',
+    discount: 'SAVE 32%',
+
+    variants: [
+      {
+        color: 'Pink',
+        sizes: ['3-4Y', '5-6Y', '7-8Y', '9-10Y'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['3-4Y', '5-6Y', '7-8Y'],
+      },
+    ],
+
     features: [
       '100% Original Product',
       'Express Shipping',
       'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Easy return and exchange within 4 days',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'High quality kids party dress',
+      'Soft and comfortable fabric',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    LongDescription: [
+      'New & Fashionable Collection',
+      'Premium finishing',
+      'Comfortable for kids',
+    ],
+  },
 
-'Work : embroidery work.',
+  {
+    id: 2,
+    category: 'Women',
+    subcategory: 'Top',
+    brand: 'Aarong',
+    section: 'Shop by Category',
 
-'Salwar : butterfly fabrics',
+    image: [
+      '/images/p24.jpg',
+      '/images/p25.jpg',
+      '/images/p26.jpg',
+    ],
 
-'Look : 100 % like as catelogue.',
+    title: 'Casual Chic Rayon Mustard A-Line Top',
 
-'Product condition: unstitched.',
+    price: 'Tk 1,002.11',
+    oldPrice: 'Tk 1,432.20',
+    discount: 'SAVE 30%',
 
-'Free Size Body And Long',
+    variants: [
+      {
+        color: 'Mustard',
+        sizes: ['S', 'M', 'L', 'XL'],
+      },
+      {
+        color: 'Black',
+        sizes: ['S', 'M', 'L'],
+      },
+    ],
 
-'Hevy embroidery work',
+    features: [
+      '100% Original Product',
+      'Express Shipping',
+      'Cash on Delivery Available',
+    ],
 
-'Quality : High quality product',
+    ShortDescription: [
+      'Stylish rayon A-line top',
+      'Comfortable casual wear',
+    ],
 
-'Stylish and fashionable'
+    LongDescription: [
+      'Premium rayon fabric',
+      'Modern everyday design',
+    ],
+  },
 
-   ],
+   {
+    id: 3,
+    category: 'Watches',
+    subcategory: 'Smart Watch',
+    brand: 'Velora Watch',
 
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
+    image: [
+      '/images/new/11.jpg',
+      '/images/new/10.jpg',
+      '/images/new/12.jpg',
+    ],
 
-]
+    title: 'Modern Smart Watch',
+
+    price: 'Tk 3,250.00',
+    oldPrice: 'Tk 4,100.00',
+    discount: 'SAVE 21%',
+
+    variants: [
+      {
+        color: 'Black',
+      },
+      {
+        color: 'Silver',
+      },
+      {
+        color: 'Gold',
+      },
+    ],
+
+    features: [
+      'Smart Notifications',
+      'Fitness Tracking',
+      'Rechargeable Battery',
+    ],
+
+    ShortDescription: [
+      'Modern smartwatch for everyday use',
+    ],
+
+    LongDescription: [
+      'Track activity and receive smart notifications',
+    ],
+  },
+
+  {
+    id: 4,
+    category: 'Kids',
+    subcategory: 'Party Dress',
+    brand: 'Aarong Kids',
+
+    image: [
+      '/images/p70.jpg',
+      '/images/p71.jpg',
+      '/images/p72.jpg',
+    ],
+
+    title: 'Kids Mustard Party Dress',
+
+    price: 'Tk 1,002.11',
+    oldPrice: 'Tk 1,432.20',
+    discount: 'SAVE 30%',
+
+    variants: [
+      {
+        color: 'Yellow',
+        sizes: ['3-4Y', '5-6Y', '7-8Y'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['3-4Y', '5-6Y'],
+      },
+    ],
+
+    features: [
+      'Original Product',
+      'Soft Fabric',
+      'Easy Exchange',
+    ],
+
+    ShortDescription: [
+      'Stylish kids party collection',
+    ],
+
+    LongDescription: [
+      'Comfortable design for special occasions',
+    ],
+  },
+
+  {
+    id: 5,
+    category: 'Shoes',
+    subcategory: 'Shoes',
+    brand: 'Velora',
+    section: 'Shop by Category',
+
+    image: [
+      '/images/new/17.jpg',
+      '/images/new/18.jpg',
+      '/images/new/19.jpg',
+    ],
+
+    title: 'Shoes',
+
+    price: 'Tk 4,729.57',
+    oldPrice: 'Tk 5,999.00',
+    discount: 'SAVE 21%',
+
+    variants: [
+      {
+        color: 'Orange',
+        sizes: ['S', 'M', 'L', 'XL'],
+      },
+      {
+        color: 'Peach',
+        sizes: ['M', 'L', 'XL'],
+      },
+    ],
+
+    features: [
+      'Premium Fabric',
+      'Express Shipping',
+      'Cash on Delivery',
+    ],
+
+    ShortDescription: [
+      'Elegant traditional salwar set',
+    ],
+
+    LongDescription: [
+      'Suitable for festive and casual occasions',
+    ],
   },
 
   {
     id: 6,
-    brand: 'aa',
-      category1: 'women', 
-           subcategory:'saree',
-    group: 'women',
+    category: 'Women',
+    subcategory: 'Saree',
+    brand: 'Velora',
     section: 'Shop by Category',
-  
-    image: ['/images/product3.jpg',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Leaf Motif',
+
+    title: 'Leaf Motif Premium Saree',
+
     price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    variants: [
+      {
+        color: 'Green',
+      },
+      {
+        color: 'Red',
+      },
+      {
+        color: 'Black',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Premium Quality',
+      'Elegant Design',
+      'Cash on Delivery',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Elegant leaf motif saree',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Premium saree suitable for special occasions',
+    ],
   },
+
   {
     id: 7,
-    brand: 'sss',
-     category1: 'women', 
-     subcategory:'party saree',
-    group: 'women',
-       subgroup: 'Young Girls Clothing (3–7 Yrs)',
-  
-    image: ['/images/product17.jpg',
+    category: 'Women',
+    subcategory: 'Party Saree',
+    brand: 'Aarong',
+
+    image: [
+      '/images/product17.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Graceful ',
+
+    title: 'Graceful Party Saree',
+
     price: 'Tk 4,729.57',
     oldPrice: 'Tk 7,166.76',
     discount: 'SAVE 34%',
-      features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    variants: [
+      {
+        color: 'Maroon',
+      },
+      {
+        color: 'Navy',
+      },
     ],
 
-     ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
-
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
-  },
-  {
-    id: 8,
-    brand: 'sss',
-    category1: 'women', 
-    subcategory:'saree',
-    group: 'women',
-  
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/p94.jpg',
-      '/images/p95.jpg',
- '/images/p96.jpg'
-    ],
-    title: 'Casual ',
-    price: 'Tk 1,002.11',
-    oldPrice: 'Tk 1,432.20',
-    discount: 'SAVE 30%',
-      features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
-    ],
-
-     ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
-
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
-  },
-  {
-    id: 9,
-    brand: 'sss',
-     category1: 'women', 
-     subcategory:'saree',
-    group: 'women',
-    
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/p97.jpg',
-      '/images/p98.jpg',
- '/images/p99.jpg'
-    ],
-    title: 'Floaty',
-    price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
-    ],
-
-     ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
-
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
-  },
-  {
-    id:10,
-    brand: 'sss',
-     category1: 'women', 
-     subcategory:'top',
-    group: 'women',
-    
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/p100.jpg',
-     '/images/p101.jpg',
- '/images/p102.jpg'
-    ],
-    title: 'Leaf Motif ',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Original Product',
+      'Premium Finish',
+      'Easy Exchange',
     ],
 
-     ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Elegant party saree',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Premium finish with fashionable styling',
+    ],
   },
-
-  
-   {
-    id: 11,
-    brand: 'sss',
-    category1: 'kids',
-    subcategory:'shirt',
-    group: 'Kids',
-    section: 'Shop by Category',
-    image: ['/images/p36.jpg', '/images/p37.jpg', '/images/p38.jpg'],
-    title: 'Floaty',
-    price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
-  },
-  {
-    id: 12,
-    brand: 'Aarong',
-    category1: 'kids',
-       subcategory:'party dresses',
-
-    group: 'Kids',
-
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/p73.jpg', '/images/p74.jpg', '/images/p75.jpg'],
-    title: 'Casual Chic ',
-    price: 'Tk 1,002.11',
-    oldPrice: 'Tk 1,432.20',
-    discount: 'SAVE 30%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 3 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
-  },
-  // 🔁 Add more products here with appropriate group, section, and optional subgroup
 
  {
-    id: 13,
-    brand: 'sss',
-    category1: 'kids',
-    subcategory:'Babys Accesories ',
-    group: 'Kids',
- 
-      subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/p76.jpg', '/images/p77.jpg', '/images/p78.jpg'],
-    title: 'Floaty Lavender',
-    price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
+    id: 8,
+    category: 'Bag',
+    subcategory: 'ladis Bag',
+    brand: 'Velora Home',
+    section: 'Shop by Trends',
+
+    image: [
+      '/images/new/14.jpg',
+      '/images/new/13.jpg',
+      '/images/new/15.jpg',
+    ],
+
+    title: 'Modern Bag',
+
+    price: 'Tk 1,250.00',
+    oldPrice: 'Tk 1,650.00',
+    discount: 'SAVE 24%',
+
+    variants: [
+      {
+        color: 'White',
+      },
+      {
+        color: 'Black',
+      },
+    ],
+
+    features: [
+      'Durable Material',
+      'Space Saving',
+      'Modern Design',
+    ],
+
+    ShortDescription: [
+      'Useful kitchen organizer',
+    ],
+
+    LongDescription: [
+      'Keeps your kitchen clean and organized',
+    ],
   },
+
+  {
+    id: 9,
+    category: 'Women',
+    subcategory: 'Saree',
+    brand: 'Velora',
+
+    image: [
+      '/images/p97.jpg',
+      '/images/p98.jpg',
+      '/images/p99.jpg',
+    ],
+
+    title: 'Floaty Elegant Saree',
+
+    price: 'Tk 2,149.02',
+
+    variants: [
+      {
+        color: 'Purple',
+      },
+      {
+        color: 'Cream',
+      },
+    ],
+
+    features: [
+      'Premium Fabric',
+      'Stylish Design',
+      'Cash on Delivery',
+    ],
+
+    ShortDescription: [
+      'Elegant modern saree',
+    ],
+
+    LongDescription: [
+      'Suitable for casual and festive wear',
+    ],
+  },
+
+  {
+    id: 10,
+    category: 'Watches',
+    subcategory: 'Smart Watch',
+    brand: 'Velora Watch',
+
+    image: [
+      '/images//new/12.jpg',
+      '/images/new/10.jpg',
+      '/images/new/11.jpg',
+    ],
+
+    title: 'Modern Smart Watch',
+
+    price: 'Tk 3,250.00',
+    oldPrice: 'Tk 4,100.00',
+    discount: 'SAVE 21%',
+
+    variants: [
+      {
+        color: 'Black',
+      },
+      {
+        color: 'Silver',
+      },
+      {
+        color: 'Gold',
+      },
+    ],
+
+    features: [
+      'Smart Notifications',
+      'Fitness Tracking',
+      'Rechargeable Battery',
+    ],
+
+    ShortDescription: [
+      'Modern smartwatch for everyday use',
+    ],
+
+    LongDescription: [
+      'Track activity and receive smart notifications',
+    ],
+  },
+
+  {
+    id: 11,
+    category: 'Men Shirt',
+    subcategory: 'Casual Shirt',
+    brand: 'Velora Men',
+
+    image: [
+      '/images/p36.jpg',
+      '/images/p37.jpg',
+      '/images/p38.jpg',
+    ],
+
+    title: 'Classic Men Casual Shirt',
+
+    price: 'Tk 1,499.00',
+
+    variants: [
+      {
+        color: 'White',
+        sizes: ['M', 'L', 'XL', 'XXL'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['M', 'L', 'XL'],
+      },
+    ],
+
+    features: [
+      'Premium Cotton',
+      'Comfort Fit',
+      'Easy Care',
+    ],
+
+    ShortDescription: [
+      'Classic everyday shirt',
+    ],
+
+    LongDescription: [
+      'Designed for comfort and modern style',
+    ],
+  },
+
+  {
+    id: 12,
+    category: 'Kids',
+    subcategory: 'Party Dress',
+    brand: 'Aarong Kids',
+
+    image: [
+      '/images/p73.jpg',
+      '/images/p74.jpg',
+      '/images/p75.jpg',
+    ],
+
+    title: 'Casual Chic Kids Party Dress',
+
+    price: 'Tk 1,002.11',
+
+    variants: [
+      {
+        sizes: ['3-4Y', '5-6Y', '7-8Y'],
+      },
+    ],
+
+    features: [
+      'Comfortable',
+      'Original Product',
+      'Easy Exchange',
+    ],
+
+    ShortDescription: [
+      'Cute kids party dress',
+    ],
+
+    LongDescription: [
+      'Fashionable design for special occasions',
+    ],
+  },
+
+  {
+    id: 13,
+    category: 'Accessories',
+    subcategory: 'Kids Accessories',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p76.jpg',
+      '/images/p77.jpg',
+      '/images/p78.jpg',
+    ],
+
+    title: 'Kids Fashion Accessories Set',
+
+    price: 'Tk 799.00',
+
+    variants: [
+      {
+        color: 'Pink',
+      },
+      {
+        color: 'Blue',
+      },
+    ],
+
+    features: [
+      'Kids Friendly',
+      'Stylish Design',
+      'Lightweight',
+    ],
+
+    ShortDescription: [
+      'Cute accessories set for kids',
+    ],
+
+    LongDescription: [
+      'Perfect for parties and everyday use',
+    ],
+  },
+
   {
     id: 14,
+    category: 'Accessories',
+    subcategory: 'Kids Accessories',
     brand: 'Aarong',
-    category1: 'party dresses',
-        subcategory:'Babys Accesories ',
-    group: 'Kids',
-   
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/p62.jpg', '/images/p61.jpg', '/images/p63.jpg'],
-    title: 'Casual Chic Rayon ',
-    price: 'Tk 1,002.11',
-    oldPrice: 'Tk 1,432.20',
-    discount: 'SAVE 30%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 3 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
+
+    image: [
+      '/images/p62.jpg',
+      '/images/p61.jpg',
+      '/images/p63.jpg',
+    ],
+
+    title: 'Premium Kids Accessories',
+
+    price: 'Tk 899.00',
+    oldPrice: 'Tk 1,099.00',
+    discount: 'SAVE 18%',
+
+    variants: [
+      {
+        color: 'White',
+      },
+      {
+        color: 'Pink',
+      },
+    ],
+
+    features: [
+      'Premium Quality',
+      'Safe Materials',
+      'Modern Design',
+    ],
+
+    ShortDescription: [
+      'Stylish accessories for kids',
+    ],
+
+    LongDescription: [
+      'Comfortable and easy to use',
+    ],
   },
+
   {
     id: 15,
-    brand: 'aa',
-    category1: 'kids',
-        subcategory:'Babys Accesories ',
-    group: 'kids',
-     subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-   
-    image: ['/images/p82.jpg',
+    category: 'Kids',
+    subcategory: 'Tween Clothing',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p82.jpg',
       '/images/p83.jpg',
- '/images/p83.jpg'
+      '/images/p83.jpg',
     ],
-    title: 'Graceful',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Tween Girls Casual Dress',
+
+    price: 'Tk 1,899.00',
+
+    variants: [
+      {
+        color: 'Pink',
+        sizes: ['8-9Y', '10-11Y', '11-12Y'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['8-9Y', '10-11Y'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Soft Material',
+      'Comfort Fit',
+      'Modern Look',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Comfortable tween girls dress',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Perfect for casual and outing wear',
+    ],
   },
-
 
   {
     id: 16,
-    brand: 'sss',
-    category1: 'kids',
-      subcategory:'Babys Accesories ',
-    group: 'Kids',
-    subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-    image: ['/images/p85.jpg', '/images/p86.jpg', '/images/p87.jpg'],
-    title: 'Floaty Lavender ',
+    category: 'Kids',
+    subcategory: 'Tween Clothing',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p85.jpg',
+      '/images/p86.jpg',
+      '/images/p87.jpg',
+    ],
+
+    title: 'Lavender Tween Girls Dress',
+
     price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
+
+    variants: [
+      {
+        sizes: ['8-9Y', '10-11Y', '11-12Y'],
+      },
+    ],
+
+    features: [
+      'Premium Fabric',
+      'Comfortable',
+      'Stylish',
+    ],
+
+    ShortDescription: [
+      'Elegant lavender tween dress',
+    ],
+
+    LongDescription: [
+      'Perfect for everyday fashion',
+    ],
   },
 
   {
     id: 17,
-    brand: 'sss',
-    category1: 'kids',
-       subcategory:'beauty',
-    group: 'Kids',
+    category: 'Beauty & Health',
+    subcategory: 'Beauty',
+    brand: 'Velora Beauty',
     section: 'Shop by Trends',
-    image: ['/images/p48.jpg',
+
+    image: [
+      '/images/p48.jpg',
       '/images/p49.jpg',
- '/images/p50.jpg'],
-    title: 'Floaty Lavender ',
-    price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
+      '/images/p50.jpg',
+    ],
+
+    title: 'Beauty Essentials Collection',
+
+    price: 'Tk 1,250.00',
+    oldPrice: 'Tk 1,650.00',
+    discount: 'SAVE 24%',
+
+    variants: [
+      {
+        color: 'Rose',
+      },
+      {
+        color: 'Natural',
+      },
+    ],
+
+    features: [
+      'Quality Tested',
+      'Premium Collection',
+      'Easy Delivery',
+    ],
+
+    ShortDescription: [
+      'Daily beauty essentials',
+    ],
+
+    LongDescription: [
+      'A modern beauty collection for everyday use',
+    ],
   },
 
   {
     id: 18,
-    brand: 'sss',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'Kids',
-  subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-    image: ['/images/p88.jpg', '/images/p89.jpg', '/images/p90.jpg'],
-    title: 'Floaty Lavender',
+    category: 'Kids',
+    subcategory: 'Party Dress',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p88.jpg',
+      '/images/p89.jpg',
+      '/images/p90.jpg',
+    ],
+
+    title: 'Lavender Tween Party Dress',
+
     price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
+
+    variants: [
+      {
+        color: 'Lavender',
+        sizes: ['8-9Y', '10-11Y', '11-12Y'],
+      },
+    ],
+
+    features: [
+      'Premium Design',
+      'Comfort Fit',
+      'Easy Exchange',
+    ],
+
+    ShortDescription: [
+      'Elegant tween party dress',
+    ],
+
+    LongDescription: [
+      'Designed for birthdays and special occasions',
+    ],
   },
 
   {
     id: 19,
-    brand: 'sss',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'Kids',
-      subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-    image: ['/images/p91.jpg', '/images/p92.jpg', '/images/p93.jpg'],
-    title: 'Floaty Lavender',
+    category: 'Kids',
+    subcategory: 'Party Dress',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p91.jpg',
+      '/images/p92.jpg',
+      '/images/p93.jpg',
+    ],
+
+    title: 'Purple Girls Party Dress',
+
     price: 'Tk 2,149.02',
-    oldPrice: 'Tk 3,152.57',
-    discount: 'SAVE 32%',
-    features: ['100% Original Product', 'Express Shipping', 'Cash on Delivery Available', 'Easy return and exchange within 4 days'],
-    ShortDescription: ['Product Type: Unstitched Georgette salwar kameez', 'Main Material: Weightless Georgette embroidery work', 'Dupatta: Waightless Georgette embroidery work', 'Work : embroidery work.', 'Salwar : butterfly fabrics', 'Look : 100 % like as catelogue.', 'Product condition: unstitched.', 'Free Size Body And Long', 'Hevy embroidery work', 'Quality : High quality product', 'Stylish and fashionable'],
-    LongDescription: ['New & Fashionable Collection', 'Unstitched', 'Sequence & Embroidery Work Four Piece', 'Body Fabrics : Georgette', 'Dupatta: Georgette', 'Shalwar : Butter Silk', 'Inner: Butter Silk', 'Body Long : 46+', 'Body: Free Size', '100% Color and Quality Dress', 'Color As same picture.']
-  },
+    oldPrice: 'Tk 2,799.00',
+    discount: 'SAVE 23%',
 
-  
- {
-    id: 20,
-    brand: 'aa',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'kids',
-  
-    subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-    image: ['/images/product3.jpg',
-      '/images/product1.jpg',
- '/images/product1.jpg'
+    variants: [
+      {
+        color: 'Purple',
+        sizes: ['8-9Y', '10-11Y'],
+      },
+      {
+        color: 'Pink',
+        sizes: ['8-9Y', '10-11Y', '11-12Y'],
+      },
     ],
-    title: 'Graceful Light',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Premium Fabric',
+      'Comfortable Fit',
+      'Party Ready',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Stylish party dress for girls',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Elegant design with premium finishing',
+    ],
   },
 
+   {
+    id: 20,
+    category: 'Electronics',
+    subcategory: 'Smart Gadget',
+    brand: 'Velora Tech',
 
+    image: [
+      '/images/new/7.jpg',
+      '/images/new/8.jpg',
+      '/images/new/9.jpg',
+    ],
 
+    title: 'Iphone 16',
+
+    price: 'Tk 2,799.00',
+
+    variants: [
+      {
+        color: 'Black',
+      },
+      {
+        color: 'White',
+      },
+    ],
+
+    features: [
+      'Smart Connectivity',
+      'Compact Design',
+      'Rechargeable',
+    ],
+
+    ShortDescription: [
+      'Compact smart electronic gadget',
+    ],
+
+    LongDescription: [
+      'Modern portable gadget for everyday use',
+    ],
+  },
   {
     id: 21,
-    brand: 'aa',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'kids',
-   
-    subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-    image: ['/images/product3.jpg',
+    category: 'Curve',
+    subcategory: 'Curve Top',
+    brand: 'Velora Curve',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Graceful Light',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Modern Curve Casual Top',
+
+    price: 'Tk 1,599.00',
+
+    variants: [
+      {
+        color: 'Blue',
+        sizes: ['XL', 'XXL', '3XL'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Relaxed Fit',
+      'Soft Fabric',
+      'Easy Care',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Comfortable curve casual top',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Modern everyday fashion for curve sizes',
+    ],
   },
-
 
   {
     id: 22,
-    brand: 'aa',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'kids',
+    category: 'Men Clothing',
+    subcategory: 'Polo Shirt',
+    brand: 'Velora Men',
 
-    subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-    image: ['/images/product3.jpg',
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Graceful ',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Men Premium Polo Shirt',
+
+    price: 'Tk 1,299.00',
+    oldPrice: 'Tk 1,699.00',
+    discount: 'SAVE 24%',
+
+    variants: [
+      {
+        color: 'Black',
+        sizes: ['M', 'L', 'XL', 'XXL'],
+      },
+      {
+        color: 'Navy',
+        sizes: ['M', 'L', 'XL'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Premium Cotton',
+      'Modern Fit',
+      'Breathable',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Premium men polo shirt',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Perfect for casual and semi-formal wear',
+    ],
   },
-
-
 
   {
     id: 23,
-    brand: 'aa',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'kids',
-    
-   subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-    image: ['/images/product3.jpg',
+    category: 'Men Clothing',
+    subcategory: 'T-Shirt',
+    brand: 'Velora Men',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Graceful',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Men Essential Cotton T-Shirt',
+
+    price: 'Tk 799.00',
+
+    variants: [
+      {
+        color: 'White',
+        sizes: ['S', 'M', 'L', 'XL'],
+      },
+      {
+        color: 'Black',
+        sizes: ['M', 'L', 'XL', 'XXL'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      '100% Cotton',
+      'Comfort Fit',
+      'Easy Wash',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Everyday cotton t-shirt',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Simple and comfortable everyday wear',
+    ],
   },
-
 
   {
     id: 24,
-    brand: 'aa',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'kids',
+    category: 'Men Shirt',
+    subcategory: 'Formal Shirt',
+    brand: 'Velora Men',
 
-      subgroup: 'Tween Girls Clothing (8-12 Yrs)',
-  
-    image: ['/images/product3.jpg',
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Graceful Light',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Classic Men Formal Shirt',
+
+    price: 'Tk 1,499.00',
+    oldPrice: 'Tk 1,999.00',
+    discount: 'SAVE 25%',
+
+    variants: [
+      {
+        color: 'White',
+        sizes: ['M', 'L', 'XL', 'XXL'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['M', 'L', 'XL'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Formal Fit',
+      'Premium Fabric',
+      'Easy Iron',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Classic formal shirt',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Suitable for office and formal occasions',
+    ],
   },
-
-
 
   {
     id: 25,
-    brand: 'aa',
-    category1: 'kids',
-          subcategory:'kids Shoes',
-    group: 'kids',
-  
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/p79.jpg',
+    category: 'Shoes',
+    subcategory: 'Kids Shoes',
+    brand: 'Velora Shoes',
+
+    image: [
+      '/images/p79.jpg',
       '/images/p80.jpg',
- '/images/p81.jpg'
+      '/images/p81.jpg',
     ],
-    title: 'Graceful Light',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Comfort Kids Shoes',
+
+    price: 'Tk 1,599.00',
+
+    variants: [
+      {
+        color: 'White',
+        sizes: ['28', '29', '30', '31'],
+      },
+      {
+        color: 'Pink',
+        sizes: ['28', '29', '30'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Comfort Sole',
+      'Lightweight',
+      'Kids Friendly',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Comfortable everyday kids shoes',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Designed for comfort and daily movement',
+    ],
   },
-
-
 
   {
     id: 26,
-    brand: 'aa',
-    category1: 'kids',
-       subcategory:'party dresses',
-    group: 'kids',
-  
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/product3.jpg',
+    category: 'Beachwear',
+    subcategory: 'Beach Dress',
+    brand: 'Velora Beach',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Graceful',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Women Summer Beach Dress',
+
+    price: 'Tk 1,899.00',
+
+    variants: [
+      {
+        color: 'White',
+        sizes: ['S', 'M', 'L'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['S', 'M', 'L', 'XL'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Lightweight',
+      'Breathable Fabric',
+      'Summer Ready',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Stylish summer beach dress',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Light and comfortable for summer outings',
+    ],
   },
-
-
 
   {
     id: 27,
-    brand: 'aa',
-    category1: 'kids',
-       subcategory:'kids Shoes',
-    group: 'kids',
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/product3.jpg',
-      '/images/product1.jpg',
- '/images/product1.jpg'
+    category: 'Shoes',
+    subcategory: 'Women Shoes',
+    brand: 'Velora Shoes',
+
+    image: [
+      '/images/new/20.jpg',
+      '/images/new/19.jpg',
+      '/images/new/18.jpg',
     ],
-    title: 'Graceful',
-    price: 'Tk 4,729.57',
-    oldPrice: 'Tk 7,166.76',
-    discount: 'SAVE 34%',
+
+    title: 'Women Classic Casual Shoes',
+
+    price: 'Tk 2,299.00',
+    oldPrice: 'Tk 2,999.00',
+    discount: 'SAVE 23%',
+
+    variants: [
+      {
+        color: 'Black',
+        sizes: ['36', '37', '38', '39', '40'],
+      },
+      {
+        color: 'White',
+        sizes: ['36', '37', '38', '39'],
+      },
+    ],
+
     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+      'Comfortable Sole',
+      'Premium Finish',
+      'Lightweight',
     ],
 
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
+    ShortDescription: [
+      'Stylish women casual shoes',
+    ],
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Perfect for daily and casual wear',
+    ],
   },
-
-
 
   {
     id: 28,
-    brand: 'aa',
-      category1: 'women', 
-         subcategory:'saree',
-    group: 'women',
-    section: 'Shop by Category',
-  
-    image: ['/images/product3.jpg',
+    category: 'Women',
+    subcategory: 'Saree',
+    brand: 'Aarong',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Leaf',
+
+    title: 'Traditional Printed Saree',
+
     price: 'Tk 3,152.57',
     oldPrice: 'Tk 4,586.21',
     discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    variants: [
+      {
+        color: 'Green',
+      },
+      {
+        color: 'Red',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Premium Fabric',
+      'Traditional Design',
+      'Original Product',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Traditional printed saree',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Elegant saree suitable for festive occasions',
+    ],
   },
 
   {
     id: 29,
-    brand: 'aa',
-      category1: 'women', 
-        subcategory:'saree',
-    group: 'women',
+    category: 'Women Shirt',
+    subcategory: 'Kurta',
+    brand: 'Velora',
 
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/product3.jpg',
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Leaf Motif Printed Pure Cotton Straight Kurta',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Leaf Motif Pure Cotton Kurta',
+
+    price: 'Tk 1,699.00',
+
+    variants: [
+      {
+        color: 'White',
+        sizes: ['S', 'M', 'L'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['M', 'L', 'XL'],
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Pure Cotton',
+      'Comfort Fit',
+      'Premium Stitching',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Comfortable cotton kurta',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Perfect for everyday traditional wear',
+    ],
   },
-
 
   {
     id: 30,
-    brand: 'aa',
-      category1: 'women', 
-        subcategory:'saree',
-    group: 'women',
-  
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/product3.jpg',
+    category: 'Sleepwear',
+    subcategory: 'Night Dress',
+    brand: 'Velora',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Leaf Motif Printed Pure Cotton Straight Kurta',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Women Soft Cotton Night Dress',
+
+    price: 'Tk 1,299.00',
+
+    variants: [
+      {
+        color: 'Pink',
+        sizes: ['S', 'M', 'L', 'XL'],
+      },
+      {
+        color: 'Blue',
+        sizes: ['M', 'L', 'XL'],
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Soft Cotton',
+      'Comfort Fit',
+      'Breathable',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Soft and comfortable sleepwear',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Designed for comfortable sleeping and relaxing',
+    ],
   },
 
   {
     id: 31,
-    brand: 'aa',
-      category1: 'women', 
-        subcategory:'saree',
-    group: 'women',
- 
-    subgroup: 'Young Girls Clothing (3–7 Yrs)',
-    image: ['/images/product3.jpg',
+    category: 'Jewelry',
+    subcategory: 'Necklace',
+    brand: 'Velora Jewelry',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Leaf Motif Printed Pure Cotton Straight Kurta',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Elegant Gold Tone Necklace',
+
+    price: 'Tk 1,099.00',
+
+    variants: [
+      {
+        color: 'Gold',
+      },
+      {
+        color: 'Silver',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Elegant Design',
+      'Premium Finish',
+      'Gift Ready',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Elegant fashion necklace',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Perfect for party and festive styling',
+    ],
   },
 
-   {
+  {
     id: 32,
-    brand: 'aa',
-      category1: 'women', 
-        subcategory:'saree',
-    group: 'women',
-  section: 'Shop by Trends',
-   
-    image: ['/images/product3.jpg',
-      '/images/product1.jpg',
- '/images/product1.jpg'
+    category: 'Bag',
+    subcategory: 'ladis Bag',
+    brand: 'Velora Home',
+    section: 'Shop by Trends',
+
+    image: [
+      '/images/new/13.jpg',
+      '/images/new/14.jpg',
+      '/images/new/15.jpg',
     ],
-    title: 'Leaf Motif Printed Pure Cotton Straight Kurta',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Modern Bag',
+
+    price: 'Tk 1,250.00',
+    oldPrice: 'Tk 1,650.00',
+    discount: 'SAVE 24%',
+
+    variants: [
+      {
+        color: 'White',
+      },
+      {
+        color: 'Black',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Durable Material',
+      'Space Saving',
+      'Modern Design',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Useful kitchen organizer',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Keeps your kitchen clean and organized',
+    ],
   },
 
-
-   {
+  {
     id: 33,
-    brand: 'aa',
-      category1: 'women', 
-        subcategory:'saree',
-    group: 'women',
-  section: 'Shop by Trends',
-   
-    image: ['/images/product3.jpg',
+    category: 'Sports & Outdoor',
+    subcategory: 'Sports Shoes',
+    brand: 'Velora Active',
+    section: 'Shop by Trends',
+
+    image: [
+      '/images/product3.jpg',
       '/images/product1.jpg',
- '/images/product1.jpg'
+      '/images/product1.jpg',
     ],
-    title: 'Leaf Motif Printed Pure Cotton Straight Kurta',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Lightweight Running Shoes',
+
+    price: 'Tk 2,499.00',
+
+    variants: [
+      {
+        color: 'Black',
+        sizes: ['39', '40', '41', '42'],
+      },
+      {
+        color: 'White',
+        sizes: ['39', '40', '41'],
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Lightweight',
+      'Comfort Sole',
+      'Breathable',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Comfortable running shoes',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Ideal for running and outdoor activities',
+    ],
   },
 
-
-   {
+  {
     id: 34,
-    brand: 'aa',
-      category1: 'women', 
-        subcategory:'saree',
-    group: 'women',
+    category: 'Electronics',
+    subcategory: 'Smart Gadget',
+    brand: 'Velora Tech',
 
-    section: 'Shop by Category',
-    image: ['/images/product3.jpg',
-      '/images/product1.jpg',
- '/images/product1.jpg'
+    image: [
+      '/images/new/7.jpg',
+      '/images/new/8.jpg',
+      '/images/new/9.jpg',
     ],
-    title: 'Leaf',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Iphone 16',
+
+    price: 'Tk 2,799.00',
+
+    variants: [
+      {
+        color: 'Black',
+      },
+      {
+        color: 'White',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Smart Connectivity',
+      'Compact Design',
+      'Rechargeable',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Compact smart electronic gadget',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Modern portable gadget for everyday use',
+    ],
   },
 
-
-
-   {
+  {
     id: 35,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'party ',
-    group: 'kids',
-   section: 'Shop by Category',
-  
-    image: ['/images/p40.jpg',
+    category: 'Kids',
+    subcategory: 'Casual Dress',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p40.jpg',
       '/images/p39.jpg',
- '/images/p41.jpg'
+      '/images/p41.jpg',
     ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Kids Casual Printed Dress',
+
+    price: 'Tk 1,399.00',
+
+    variants: [
+      {
+        color: 'Pink',
+        sizes: ['3-4Y', '5-6Y', '7-8Y'],
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Soft Fabric',
+      'Comfortable Fit',
+      'Cute Design',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Cute everyday kids dress',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Comfortable for everyday use',
+    ],
   },
-
-
-
 
   {
     id: 36,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'Tween Babys Clothing  ',
-    group: 'kids',
-   section: 'Shop by Category',
-  
-    image: ['/images/p42.jpg',
+    category: 'Kids',
+    subcategory: 'Tween Clothing',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p42.jpg',
       '/images/p43.jpg',
- '/images/p44.jpg'
+      '/images/p44.jpg',
     ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Tween Girls Printed Outfit',
+
+    price: 'Tk 1,699.00',
+
+    variants: [
+      {
+        sizes: ['8-9Y', '10-11Y', '11-12Y'],
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Premium Fabric',
+      'Modern Design',
+      'Comfort Fit',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Stylish tween girls outfit',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Suitable for casual and outing wear',
+    ],
   },
 
-
-{
+  {
     id: 37,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'Tween Babys Clothing ',
-    group: 'kids',
-   section: 'Shop by Category',
-  
-    image: ['/images/p51.jpg',
+    category: 'Kids',
+    subcategory: 'Tween Clothing',
+    brand: 'Velora Kids',
+
+    image: [
+      '/images/p51.jpg',
       '/images/p52.jpg',
- '/images/p53.jpg'
+      '/images/p53.jpg',
     ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Tween Girls Casual Set',
+
+    price: 'Tk 1,899.00',
+    oldPrice: 'Tk 2,299.00',
+    discount: 'SAVE 17%',
+
+    variants: [
+      {
+        color: 'Blue',
+        sizes: ['8-9Y', '10-11Y'],
+      },
+      {
+        color: 'Black',
+        sizes: ['8-9Y', '10-11Y', '11-12Y'],
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Comfort Fit',
+      'Modern Look',
+      'Premium Quality',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Modern casual set for tween girls',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Perfect for everyday fashion',
+    ],
   },
 
-
-{
+  {
     id: 38,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'Tween Babys Clothing ',
-    group: 'kids',
-   section: 'Shop by Category',
-  
-    image: ['/images/p45.jpg',
-      '/images/p36.jpg',
- '/images/p47.jpg'
+    category: 'HeadPhones',
+    subcategory: 'Wireless Headphones',
+    brand: 'Velora Audio',
+
+    image: [
+      '/images/new/1.jpg',
+      '/images/new/2.jpg',
+      '/images/new/3.jpg',
     ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Wireless Bluetooth Headphones',
+
+    price: 'Tk 2,999.00',
+    oldPrice: 'Tk 3,699.00',
+    discount: 'SAVE 19%',
+
+    variants: [
+      {
+        color: 'Black',
+      },
+      {
+        color: 'White',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Bluetooth Connectivity',
+      'Long Battery Life',
+      'Fast Charging',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Wireless Bluetooth headphones',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Premium sound with long battery performance',
+    ],
   },
-
-
-
-
-
 
   {
     id: 39,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'Babys Accesories ',
-    group: 'kids',
- 
+    category: 'Accessories',
+    subcategory: 'Fashion Accessories',
+    brand: 'Velora Accessories',
     section: 'Shop by Trends',
-  
-    image: ['/images/p64.jpg',
+
+    image: [
+      '/images/p64.jpg',
       '/images/p65.jpg',
- '/images/p66.jpg'
+      '/images/p66.jpg',
     ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Fashion Accessories Collection',
+
+    price: 'Tk 899.00',
+
+    variants: [
+      {
+        color: 'Pink',
+      },
+      {
+        color: 'Blue',
+      },
+      {
+        color: 'White',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Stylish Design',
+      'Premium Quality',
+      'Gift Friendly',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Modern fashion accessories',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Suitable for everyday styling',
+    ],
   },
-
-
 
   {
     id: 40,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'Tween Babys Clothing ',
-    group: 'kids',
-   section: 'Shop by Category',
-  
-    image: ['/images/p45.jpg',
-      '/images/p36.jpg',
- '/images/p47.jpg'
+    category: 'Watches',
+    subcategory: 'Smart Watch',
+    brand: 'Velora Watch',
+
+    image: [
+      '/images/new/10.jpg',
+      '/images//new/11.jpg',
+      '/images/new/12.jpg',
     ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Modern Smart Watch',
+
+    price: 'Tk 3,250.00',
+    oldPrice: 'Tk 4,100.00',
+    discount: 'SAVE 21%',
+
+    variants: [
+      {
+        color: 'Black',
+      },
+      {
+        color: 'Silver',
+      },
+      {
+        color: 'Gold',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Smart Notifications',
+      'Fitness Tracking',
+      'Rechargeable Battery',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Modern smartwatch for everyday use',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Track activity and receive smart notifications',
+    ],
   },
 
 
 
 
-  {
+
+
+   {
     id: 41,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'Babys Shoes ',
-    group: 'kids',
-   section: 'Shop by Category',
-  
-    image: ['/images/p67.jpg',
-      '/images/p68.jpg',
- '/images/p69.jpg'
+    category: 'HeadPhones',
+    subcategory: 'Wireless Headphones',
+    brand: 'Velora Audio',
+
+    image: [
+      '/images/new/4.jpg',
+      '/images/new/5.jpg',
+      '/images/new/6.jpg',
     ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
+
+    title: 'Wireless Bluetooth Headphones',
+
+    price: 'Tk 2,999.00',
+    oldPrice: 'Tk 3,699.00',
+    discount: 'SAVE 19%',
+
+    variants: [
+      {
+        color: 'Black',
+      },
+      {
+        color: 'White',
+      },
     ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
 
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
+    features: [
+      'Bluetooth Connectivity',
+      'Long Battery Life',
+      'Fast Charging',
+    ],
 
-'Work : embroidery work.',
+    ShortDescription: [
+      'Wireless Bluetooth headphones',
+    ],
 
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
+    LongDescription: [
+      'Premium sound with long battery performance',
+    ],
   },
-
-
-
-
-  {
-    id: 42,
-    brand: 'aa',
-      category1: 'kids', 
-        subcategory:'Tween Babys Clothing ',
-    group: 'kids',
-   section: 'Shop Trends',
-  
-    image: ['/images/p45.jpg',
-      '/images/p36.jpg',
- '/images/p47.jpg'
-    ],
-    title: 'Leaf Motif',
-    price: 'Tk 3,152.57',
-    oldPrice: 'Tk 4,586.21',
-    discount: 'SAVE 31%',
-     features: [
-      '100% Original Product',
-      'Express Shipping',
-      'Cash on Delivery Available',
-      'Easy return and exchange within 3 days'
-    ],
-    ShortDescription:['Product Type: Unstitched Georgette salwar kameez',
-
-'Main Material: Weightless Georgette embroidery work',
-'Dupatta: Waightless Georgette embroidery work',
-
-'Work : embroidery work.',
-
-'Salwar : butterfly fabrics',
-
-'Look : 100 % like as catelogue.',
-
-'Product condition: unstitched.',
-
-'Free Size Body And Long',
-
-'Hevy embroidery work',
-
-'Quality : High quality product',
-
-'Stylish and fashionable'
-
-   ],
-
-    LongDescription:['New & Fashionable Collection',
-'Unstitched',
-'Sequence & Embroidery Work Four Piece',
-'Body Fabrics : Georgette',
-'Dupatta: Georgette',
-'Shalwar : Butter Silk',
-'Inner: Butter Silk',
-'Body Long : 46+',
-'Body: Free Size',
-'100% Color and Quality Dress',
-'Color As same picture.'
-
-]
-  },
-
-
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

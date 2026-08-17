@@ -14,7 +14,13 @@ import Footer from '../components/Footer';
 type CartProduct = Product & { quantity: number };
 
 export default function AllProductsPage() {
-  const allCategories = Array.from(new Set(allProducts.map((p) => p.subcategory)));
+  const allCategories = Array.from(
+  new Set(
+    allProducts
+      .map((p) => p.subcategory)
+      .filter((cat): cat is string => Boolean(cat))
+  )
+);
 
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
@@ -51,59 +57,40 @@ export default function AllProductsPage() {
     );
   };
 
- const filteredProducts = allProducts.filter((product) => {
-  const q = searchQuery.toLowerCase();
-  return (
-    product.title?.toLowerCase().includes(q) ||
-    product.group?.toLowerCase().includes(q) ||
-    product.subcategory?.toLowerCase().includes(q) ||
-    product.category1?.toLowerCase().includes(q)
-      );
-    })
-    .filter((product) => {
-      if (checkedCategories.length === 0) return true;
-      return checkedCategories
-        .map((c) => c.toLowerCase())
-        .includes((product.subcategory || '').toLowerCase());
-    })
-    .filter((product) => {
-      const price = parseFloat(product.price.replace(/[^\d.]/g, ''));
-      return price >= priceRange[0] && price <= priceRange[1];
-    });
+ const filteredProducts = allProducts
+  .filter((product) => {
+    const q = searchQuery.toLowerCase();
+
+    return (
+      product.title?.toLowerCase().includes(q) ||
+      product.category?.toLowerCase().includes(q) ||
+      product.subcategory?.toLowerCase().includes(q) ||
+     product.brand?.toLowerCase().includes(q)
+    );
+  })
+  .filter((product) => {
+    if (checkedCategories.length === 0) return true;
+
+    return checkedCategories
+      .map((c) => c.toLowerCase())
+      .includes((product.subcategory || '').toLowerCase());
+  })
+  .filter((product) => {
+    const price = parseFloat(
+      product.price.replace(/[^\d.]/g, '')
+    );
+
+    return (
+      price >= priceRange[0] &&
+      price <= priceRange[1]
+    );
+  });
 
   return (
     <div className="bg-white">
-      <Header onSearchChange={setSearchQuery} />
+<Header onSearchChange={setSearchQuery} />
 
       
-<div className="w-full h-[50px] sm:h-[60px] lg:w-[1700px] lg:h-[65px] mx-auto 
-  bg-gradient-to-r from-[#FF6F61] via-[#FF4C5B] to-[#FF7A7F] 
-  py-4 sm:py-6 lg:py-8  mt-4 lg:mt-6 flex justify-center items-center relative">
-
-
-        <img
-          src="/images/sparkle.png"
-          alt="sparkle"
-          className="absolute left-[20%] top-[30%] w-6 h-6 animate-ping opacity-60"
-        />
-
-
-
-        <h1 className="text-white text-3xl sm:text-4xl font-extrabold italic tracking-wide  text-center flex items-center justify-center gap-2">
-          <img src="/icons/star.png" alt="Bag" className="w-6 h-6 object-contain" />
-          Super <span className="text-white">Deals</span>
-        </h1>
-</div>
-
-     <div className="w-full max-w-[1700px] mx-auto px-2 sm:px-4">
-  <FlashDeals2 />
-</div>
-
-
-
-      
-      
-
       {/* 🔧 Mobile FILTERS button */}
       <div className=" hidden px-4 mt-4">
         <button
@@ -150,10 +137,12 @@ export default function AllProductsPage() {
       </div>
 
       {/* 🔧 Desktop layout */}
-      <div className="flex flex-col md:flex-row w-full max-w-[1700px] mx-auto px-4 gap-6 items-start mt-[-120px]">
+    <div className="flex flex-col md:flex-row w-full max-w-[1700px] mx-auto px-4 gap-6 items-start">
         {/* Sidebar */}
         <aside className="hidden md:block w-[250px] pt-[26px]">
-          <h3 className="text-lg font-bold mb-4 text-black mt-10 lg:mt-40">Category</h3>
+          <h3 className="text-lg font-bold mb-4 text-black mt-8">
+  Category
+</h3>
           <div className="max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent space-y-3">
             {allCategories.map((cat) => (
               <label
@@ -198,10 +187,21 @@ export default function AllProductsPage() {
         <main className="flex-1">
        
 
-<h1 className="text-2xl font-semibold mb-4 pt-4 bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent
-  text-center flex items-center justify-center gap-2 mt-32 lg:mt-40">
-  <img src="/icons/rate.png" alt="Bag" className="w-6 h-6 object-contain" />
-  <span> Find What You Loves</span>
+<h1
+  className="
+    mt-8 mb-4
+    flex items-center justify-center gap-2
+    text-center text-2xl font-semibold
+    bg-[#9D4E75]
+    bg-clip-text text-transparent
+  "
+>
+  <img
+    src="/icons/rate.png"
+    alt="Bag"
+    className="w-6 h-6 object-contain"
+  />
+  <span>Find What You Loves</span>
 </h1>
 
           <ProductCardGrid

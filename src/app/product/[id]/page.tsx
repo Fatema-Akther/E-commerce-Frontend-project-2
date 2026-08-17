@@ -28,22 +28,18 @@ export default function ProductPage(props: { params: Promise<{ id: string }> }) 
     <div className="flex flex-col min-h-screen bg-white">
       <Header />
 
-      <main className="max-w-4xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/2">
-          {/* Optional: Add something here */}
-        </div>
+      <main className="w-full">
+  <SingleProductDetails
+    product={product}
+    onAddToCart={() => setDrawerOpen(true)}
+  />
+</main>
 
-        <SingleProductDetails
-          product={{ ...product, category1: product.category1 }} // ✅ Ensure 'category' exists
-          onAddToCart={() => setDrawerOpen(true)}
-        />
-      </main>
-
-      <RelatedProducts
-        allProducts={allProducts.map((p) => ({ ...p, category: p.category1 }))} // ✅ Ensure all have category
-        currentId={product.id}
-        currentCategory={product.category1}
-      />
+    <RelatedProducts
+  allProducts={allProducts}
+  currentId={product.id}
+  currentCategory={product.category}
+/>
 
       <Footer />
 

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/app/data/products';
 import { useState } from 'react';
+import { TiShoppingCart } from 'react-icons/ti';
 
 type Props = {
   products: Product[];
@@ -76,18 +77,34 @@ export default function ProductCardGrid({
                 </div>
 
                 <div className="flex items-center justify-between font-semibold text-sm">
-                  <span className="text-black">{product.price}</span>
+              <div className="flex items-end justify-between">
+  <div>
+
+      <div className="text-sm font-bold text-[#8B2E5C]">
+      {product.price}
+    </div>
+    {product.oldPrice && (
+      <div className="text-xs text-gray-500 line-through">
+        {product.oldPrice}
+      </div>
+    )}
+
+   
+  </div>
+
+
+</div>
 
                    {showCartButton && (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault(); // prevents link navigation
-                        onAddToCart?.(product); // 🔥 Trigger cart add + drawer open
-                      }}
-                      className="text-base"
-                    >
-                      🛒
-                    </button>
+                   <button
+  onClick={(e) => {
+    e.preventDefault();
+    onAddToCart?.(product);
+  }}
+  className="p-2"
+>
+  <TiShoppingCart className="text-2xl" />
+</button>
                   )}
                 </div>
               </div>
@@ -99,12 +116,20 @@ export default function ProductCardGrid({
       {/* 🔽 Toggle Button */}
       {maxRows && products.length > maxRows * cardsPerRow && (
         <div className="mt-8 flex justify-center w-full">
-          <button
-            onClick={() => setShowAll((prev) => !prev)}
-            className="px-6 py-3 border border-black text-black font-semibold hover:bg-black hover:text-white transition"
-          >
-            {showAll ? 'View Less ⌃' : 'View More ⌄'}
-          </button>
+         <button
+  onClick={() => setShowAll((prev) => !prev)}
+  className="group inline-flex min-w-[170px] items-center justify-center gap-2 rounded-md bg-black px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-lg"
+>
+  <span>{showAll ? 'View Less' : 'View More'}</span>
+
+  <span
+    className={`transition-transform duration-300 ${
+      showAll ? 'rotate-180' : ''
+    }`}
+  >
+    ↓
+  </span>
+</button>
         </div>
       )}
     </section>

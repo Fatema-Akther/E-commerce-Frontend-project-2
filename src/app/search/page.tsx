@@ -26,27 +26,38 @@ const SearchResultsContent = () => {
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
 
-  const allCategories = Array.from(
-    new Set(
-      allProducts
-        .filter((p) => p.title?.toLowerCase().includes(query.toLowerCase()) || p.subcategory?.toLowerCase().includes(query.toLowerCase()))
-        .map((p) => p.subcategory)
-    )
-  );
+ const allCategories = Array.from(
+  new Set(
+    allProducts
+      .filter((p) => {
+        const q = query.toLowerCase();
 
+        return (
+          p.title?.toLowerCase().includes(q) ||
+          p.category?.toLowerCase().includes(q) ||
+          p.subcategory?.toLowerCase().includes(q) ||
+          p.brand?.toLowerCase().includes(q)
+        );
+      })
+      .map((p) => p.subcategory)
+      .filter((cat): cat is string => Boolean(cat))
+  )
+);
   const filteredProducts = allProducts
     .filter((product) => {
       const q = query.toLowerCase();
       return (
         product.title?.toLowerCase().includes(q) ||
-        product.group?.toLowerCase().includes(q) ||
+       product.category?.toLowerCase().includes(q) ||
         product.subcategory?.toLowerCase().includes(q) ||
-        product.category1?.toLowerCase().includes(q)
+        product.brand?.toLowerCase().includes(q)
       );
     })
     .filter((product) => {
       if (checkedCategories.length === 0) return true;
-      return checkedCategories.includes(product.subcategory);
+    return product.subcategory
+  ? checkedCategories.includes(product.subcategory)
+  : false;
     })
     .filter((product) => {
       const price = parseFloat(product.price.replace(/[^\d.]/g, ''));

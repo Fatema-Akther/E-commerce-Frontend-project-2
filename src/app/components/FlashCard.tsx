@@ -25,7 +25,7 @@ export default function FlashCard({ images, title, price }: Props) {
   const displayedImage = hovered && images[2] ? images[2] : images[currentImage] || images[0]
 
   return (
-<Link href="/all-products">
+<Link href="/Offer">
   <div
   className="min-w-[120px] sm:min-w-[160px] lg:min-w-[200px] flex-shrink-0"
 
@@ -33,7 +33,7 @@ export default function FlashCard({ images, title, price }: Props) {
   onMouseLeave={() => setHovered(false)}
 >
 
-    <div className="w-[120px] h-[150px] sm:w-[160px] sm:h-[180px] lg:w-[200px] lg:h-[220px] rounded-md overflow-hidden bg-white relative">
+    <div className="w-[120px] h-[150px] sm:w-[160px] sm:h-[180px] lg:w-[200px] lg:h-[220px] rounded-md overflow-hidden border-[#cd8fae]  bg-white relative">
       {displayedImage ? (
         <Image
           src={displayedImage}
@@ -48,7 +48,7 @@ export default function FlashCard({ images, title, price }: Props) {
         </div>
       )}
     </div>
-    <div className="text-red-600 font-semibold text-xs mt-1 text-center">
+    <div className="text-[#8B2E5C] font-semibold text-xs mt-1 text-center">
       {price}
     </div>
   </div>
