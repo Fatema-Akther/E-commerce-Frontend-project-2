@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img src="./banner.png" alt="Velora E-Commerce Frontend Banner" width="100%">
+</p>
 
-## Getting Started
+# Velora — E-Commerce Frontend
 
-First, run the development server:
+A modern and responsive E-commerce frontend built with Next.js, TypeScript, and Tailwind CSS, focused on clean UI, responsive design, and a smooth shopping experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Velora is a frontend-focused E-commerce website built with Next.js, TypeScript, and Tailwind CSS.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project focuses on creating a modern, responsive, and user-friendly shopping experience using static/demo product data.
 
-## Learn More
+The main goal of this project is to showcase frontend development skills, UI design, responsive layouts, product browsing, and shopping interactions.
 
-To learn more about Next.js, take a look at the following resources:
+**No custom backend or production database is included in this project.**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Live Demo
 
-## Deploy on Vercel
+🌐 **Live Website:**  
+https://e-commerce-frontend-project-2.vercel.app
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features
+
+- Responsive E-commerce UI
+- Modern and clean user interface
+- Product listing
+- Product details
+- Product categories
+- Product search and filtering
+- Shopping cart UI
+- Responsive navigation
+- Modern product cards
+- Promotional banners
+- Category browsing
+- Mobile-friendly design
+- Smooth shopping experience
+
+> Features listed above reflect the current frontend implementation.
+
+---
+
+## Tech Stack
+
+- **Next.js**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **React Icons**
+- **rc-slider**
+- **Sonner**
+
+---
+
+## Screenshots
+
+### Homepage
+
+![Homepage Screenshot](./screenshots/homepage.png)
+
+### Product Listing
+
+![Product Listing Screenshot](./screenshots/product-listing.png)
+
+### Product Details
+
+![Product Details Screenshot](./screenshots/product-details.png)
+
+### Shopping Cart
+
+![Shopping Cart Screenshot](./screenshots/shopping-cart.png)
+
+### Responsive Design
+
+The interface is designed to provide a responsive shopping experience across desktop, tablet, and mobile devices.
+
+![Responsive Design](./screenshots/responsive.png)
+
+---
+
+## Project Structure
+
+```text
+src
+│
+└── app
+    ├── components
+    ├── data
+    ├── utils
+    ├── all-products
+    ├── category
+    ├── group
+    ├── product
+    ├── search
+    ├── checkout
+    ├── Offer
+    └── thankyou
