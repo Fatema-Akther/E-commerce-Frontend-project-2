@@ -382,7 +382,7 @@ return (
           <button
   type="button"
   onClick={handleAddToCart}
-  className="mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-[#9D4E75] px-6 py-2 text-base font-bold uppercase tracking-wide text-white transition duration-300 hover:bg-[#cf3e1b]"
+  className="mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-[#9D4E75] px-6 py-2 text-base font-bold uppercase tracking-wide text-white transition duration-300 hover:bg-[#441a2f]"
 >
   <FaShoppingBag />
   Add to Cart
