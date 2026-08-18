@@ -120,7 +120,7 @@ Make sure you have the following installed:
 Clone the repository:
 
 ```bash
-git clone https://github.com/Fatema-Akther/velora-ecommerce-frontend
+git clone https://github.com/Fatema-Akther/velora-ecommerce-frontend.git
 ```
 
 Navigate to the project directory:
