@@ -4,13 +4,13 @@
 
 # Velora — E-Commerce Frontend
 
-A modern and responsive E-commerce frontend built with Next.js, TypeScript, and Tailwind CSS, focused on clean UI, responsive design, and a smooth shopping experience.
+A modern and responsive eCommerce frontend built with Next.js, TypeScript, and Tailwind CSS, focused on clean UI, responsive design, and a smooth shopping experience.
 
 ---
 
 ## Project Overview
 
-Velora is a frontend-focused E-commerce website built with Next.js, TypeScript, and Tailwind CSS.
+Velora is a frontend-focused eCommerce website built with Next.js, TypeScript, and Tailwind CSS.
 
 The project focuses on creating a modern, responsive, and user-friendly shopping experience using static/demo product data.
 
@@ -29,7 +29,7 @@ https://e-commerce-frontend-project-2.vercel.app
 
 ## Features
 
-- Responsive E-commerce UI
+- Responsive eCommerce UI
 - Modern and clean user interface
 - Product listing
 - Product details
@@ -102,3 +102,80 @@ src
     ├── checkout
     ├── Offer
     └── thankyou
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js
+- npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd YOUR_REPOSITORY
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+### Run the Development Server
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open your browser and visit:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## Data & Disclaimer
+
+This project uses static/demo product data for showcasing the frontend experience.
+
+**No custom backend or production database is included in this project.**
+
+The product information, promotional content, images, and other data are used for demonstration and frontend development purposes only.
+
+---
+
+## Purpose
+
+This project was created to demonstrate:
+
+- Frontend development with Next.js
+- Responsive UI implementation
+- Modern eCommerce interface design
+- Component-based development
+- TypeScript usage
+- Tailwind CSS styling
+- Product browsing experience
+- Responsive and user-friendly layouts
+
+---
+
+## License
+
+This project is created for portfolio and educational purposes.
