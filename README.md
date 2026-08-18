@@ -120,13 +120,13 @@ Make sure you have the following installed:
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/Fatema-Akther/velora-ecommerce-frontend
 ```
 
 Navigate to the project directory:
 
 ```bash
-cd YOUR_REPOSITORY
+cd velora-ecommerce-frontend
 ```
 
 Install the dependencies:
